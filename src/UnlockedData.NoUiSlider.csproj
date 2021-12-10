@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework> 
     <Platforms>AnyCPU</Platforms>
-    <Licence>https://raw.githubusercontent.com/UnlockedData/UnlockedData.NoUiSlider/main/LICENSE</Licence>
+    
   </PropertyGroup>
 
   <PropertyGroup>
