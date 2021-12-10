@@ -39,7 +39,7 @@ jobs:
     - name: Create Package Dir
       run: mkdir ${{ github.workspace }}/package
     - name: Pack
-      run: dotnet pack UnlockedData.NoUiSlidersln --no-build -c Release --output "${{ github.workspace }}/package"
+      run: dotnet pack UnlockedData.NoUiSlider.sln --no-build -c Release --output "${{ github.workspace }}/package"
     - name: Upload Artifacts
       uses: actions/upload-artifact@v1
       with:
