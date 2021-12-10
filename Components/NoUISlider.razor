@@ -1,0 +1,105 @@
+﻿@inject IJSRuntime JSRuntime
+
+<div @ref="elementReference" @attributes="InputAttributes" class=@("slider slider-" + Colour)></div>
+
+@code {
+
+    #region Declarations
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> InputAttributes { get; set; }
+        = new();
+
+    [Parameter]
+    public SliderOption Option { get; set; }
+
+    [Parameter]
+    public BootstrapColour Colour { get; set; } = BootstrapColour.primary;
+
+    ElementReference elementReference;
+
+    #endregion
+
+    #region Events
+
+    [Parameter]
+    public EventCallback<SliderEventArgs> OnSliderEnd { get; set; }
+
+    [JSInvokable]
+    public virtual async Task SliderEnd(long[] values, int handle)
+    {
+        await OnSliderEnd.InvokeAsync(new SliderEventArgs {Values = values, Handle = handle});
+    }
+
+    [Parameter]
+    public EventCallback<SliderEventArgs> OnSliderStart { get; set; }
+
+    [JSInvokable]
+    public virtual async Task SliderStart(long[] values, int handle)
+    {
+        await OnSliderStart.InvokeAsync(new SliderEventArgs {Values = values, Handle = handle});
+    }
+
+    [Parameter]
+    public EventCallback<SliderEventArgs> OnSliderChange { get; set; }
+
+    [JSInvokable]
+    public virtual async Task SliderChange(long[] values, int handle)
+    {
+        await OnSliderChange.InvokeAsync(new SliderEventArgs {Values = values, Handle = handle});
+    }
+
+    [Parameter]
+    public EventCallback<SliderEventArgs> OnSliderUpdate { get; set; }
+
+    [JSInvokable]
+    public virtual async Task SliderUpdate(long[] values, int handle)
+    {
+        await OnSliderUpdate.InvokeAsync(new SliderEventArgs {Values = values, Handle = handle});
+    }
+
+    [Parameter]
+    public EventCallback<SliderEventArgs> OnSliderSlide { get; set; }
+
+    [JSInvokable]
+    public virtual async Task SliderSlide(long[] values, int handle)
+    {
+        await OnSliderSlide.InvokeAsync(new SliderEventArgs {Values = values, Handle = handle});
+    }
+
+    [Parameter]
+    public EventCallback<SliderEventArgs> OnSliderSet { get; set; }
+
+    [JSInvokable]
+    public virtual async Task SliderSet(long[] values, int handle)
+    {
+        await OnSliderSet.InvokeAsync(new SliderEventArgs {Values = values, Handle = handle});
+    }
+    
+    
+
+    protected override void OnInitialized()
+    {
+    }
+
+    /// <summary>
+    ///     This will call Js dateSlider function
+    /// </summary>
+    /// <param name="firstRender"></param>
+    protected override void OnAfterRender(bool firstRender)
+    {
+        var dotnetRef = DotNetObjectReference.Create(this);
+        if (firstRender)
+        {
+            JSRuntime.InvokeVoidAsync("addNoUiSlider", Option, elementReference, dotnetRef);
+        }
+        else
+        {
+            JSRuntime.InvokeVoidAsync("updateNoUiSlider", Option, elementReference, dotnetRef);
+            
+        }
+    }
+
+    #endregion
+
+}
