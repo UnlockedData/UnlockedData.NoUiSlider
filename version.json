@@ -8,8 +8,8 @@
     "semVer": 2.0
   },
   "publicReleaseRefSpec": [
-    "^refs/heads/master$",
-    "^refs/heads/v\\d+(?:\\.\\d+)?$"
+    "^refs/heads/main$",
+    "^refs/heads/rel/v\\d+\\.\\d+"
   ],
   "release": {
     "branchName": "rel/v{version}"
