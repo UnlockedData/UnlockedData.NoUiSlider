@@ -31,7 +31,7 @@
 };
 
 function invokeDotnetMethod(noUiSlider,methodName, value, handle) {
-    console.log("invokeDotnetMethod");
+    
     if (Array.isArray(value)) {
         value.forEach(function (item, index) {
             value[index] = parseInt(item);
