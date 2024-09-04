@@ -2,11 +2,11 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <Company>Unlocked Data</Company>
-    <Product>UnlockedData.Chartist.Blazor</Product>
+    <Product>UnlockedData.NoUiSlider</Product>
     <IncludeSymbols>true</IncludeSymbols>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/UnlockedData/UnlockedData.Chartist.Blazor/main/LICENSE</PackageLicenseUrl>
-    <RepositoryUrl>https://github.com/UnlockedData/UnlockedData.Chartist.Blazor</RepositoryUrl>
+    <Licence>https://raw.githubusercontent.com/UnlockedData/UnlockedData.NoUiSlider/main/LICENSE</Licence>
+    <RepositoryUrl>https://github.com/UnlockedData/UnlockedData.NoUiSlider</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
